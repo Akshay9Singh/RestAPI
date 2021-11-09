@@ -29,7 +29,7 @@ import com.spring.rest.dto.DemoRequest;
 import com.spring.rest.dto.DemoResponse;
 import com.spring.rest.dto.EmailRequest;
 
-//Controller
+//Akshay
 @RestController//To specify this class as a Rest type controller
 @RequestMapping(RestURIConstant.REST_API)
 public class GenericController {
