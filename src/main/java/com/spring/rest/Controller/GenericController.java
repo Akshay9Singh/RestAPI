@@ -25,25 +25,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring.rest.constant.RestURIConstant;
-import com.spring.rest.dto.DemoRequest;
-import com.spring.rest.dto.DemoResponse;
 import com.spring.rest.dto.EmailRequest;
 
 
 @RestController//To specify this class as a Rest type controller
 @RequestMapping(RestURIConstant.REST_API)
-public class GenericController {
-
-	@RequestMapping(value = RestURIConstant.DEMO, method = RequestMethod.POST)
-	public ResponseEntity demoAPI(@RequestBody DemoRequest input) {
-		System.out.println("Request is : " + input);
-
-		DemoResponse rsp = new DemoResponse();
-		rsp.setResponse("API worked");
-
-		return ResponseEntity.ok(rsp);
-	}
-	
+public class GenericController {	
 	
 	@Value("${spring.mail.username}")
 	String FROM;
