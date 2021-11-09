@@ -27,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.spring.rest.constant.RestURIConstant;
 import com.spring.rest.dto.EmailRequest;
 
-
+//Commit by arnab
 @RestController//To specify this class as a Rest type controller
 @RequestMapping(RestURIConstant.REST_API)
 public class GenericController {	
