@@ -29,7 +29,7 @@ import com.spring.rest.dto.DemoRequest;
 import com.spring.rest.dto.DemoResponse;
 import com.spring.rest.dto.EmailRequest;
 
-//Controller
+
 @RestController//To specify this class as a Rest type controller
 @RequestMapping(RestURIConstant.REST_API)
 public class GenericController {
@@ -43,57 +43,6 @@ public class GenericController {
 
 		return ResponseEntity.ok(rsp);
 	}
-
-
-	@Value("${file.upload.location}")//To read file location directory from aplication.properties
-	String FILE_DIRECTORY;//Contains file location directory
-	@RequestMapping(value = RestURIConstant.FILE_UPLOAD, method = RequestMethod.POST)
-	public ResponseEntity fileUpload(@RequestParam("File") MultipartFile file) {
-
-		System.out.println(file);
-		System.out.println(file.getContentType());
-		System.out.println(file.getName());
-		System.out.println(file.getSize());
-		System.out.println(file.getResource());
-		System.out.println(file.getOriginalFilename());
-		
-        /*try {
-			file.transferTo(new File(FILE_DIRECTORY+file.getOriginalFilename()));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}//This type of implementation simply copies the file from one directory to another*/
-		
-		try {
-			File myFile = new File(FILE_DIRECTORY+file.getOriginalFilename());
-			myFile.createNewFile();
-
-			FileOutputStream fos = new FileOutputStream(myFile);
-			fos.write(file.getBytes());
-			fos.close();
-
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error in Uploading File");
-		}
-
-		return new ResponseEntity("File Uploaded Successfully",HttpStatus.OK);
-	}
-	
-	/*{ttpHeaders header = new HttpHeaders();
-    header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=img.jpg");
-    header.add("Cache-Control", "no-cache, no-store, must-revalidate");
-    header.add("Pragma", "no-cache");
-    header.add("Expires", "0");
-
-    Path path = Paths.get(file.getAbsolutePath());
-    ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
-
-    return ResponseEntity.ok()
-            .headers(header)
-            .contentLength(file.length())
-            .contentType(MediaType.parseMediaType("application/octet-stream"))
-            .body(resource);}*/
 	
 	
 	@Value("${spring.mail.username}")
