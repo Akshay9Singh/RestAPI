@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,5 +61,11 @@ public class GenericController {
 		}
 
 		return new ResponseEntity<String>("Mail Sent Successfully",HttpStatus.OK);
+	}
+
+	@GetMapping("/home/{name}")
+	public String greetHello(@PathVariable String name){
+		System.out.println("Hello " + name +" , Welcome.");
+		return "Hello, Welcome "+name+". Nice to have you here.";
 	}
 }
