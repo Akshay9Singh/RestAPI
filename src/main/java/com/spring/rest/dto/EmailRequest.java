@@ -8,7 +8,14 @@ public class EmailRequest {
 	public String Subject;
 	public String cc;
 	public String bcc;
+	public String Message;
 	
+	public String getMessage() {
+		return Message;
+	}
+	public void setMessage(String message) {
+		Message = message;
+	}
 	public String getFrom() {
 		return From;
 	}
@@ -45,10 +52,10 @@ public class EmailRequest {
 	public void setBcc(String bcc) {
 		this.bcc = bcc;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "EmailRequest [From=" + From + ", Password=" + Password + ", Subject=" + Subject + ", To=" + To
-				+ ", bcc=" + bcc + ", cc=" + cc + "]";
+		return "EmailRequest [From=" + From + ", Message=" + Message + ", Password=" + Password + ", Subject=" + Subject
+				+ ", To=" + To + ", bcc=" + bcc + ", cc=" + cc + "]";
 	}	
 }
