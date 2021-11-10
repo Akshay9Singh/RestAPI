@@ -36,6 +36,8 @@ public class GenericController {
 			message.setTo(erq.getTo());
 			message.setSubject(erq.getSubject());
 			message.setText(erq.getMessage());
+			message.setCc(erq.getCc());
+			message.setBcc(erq.getBcc());
 
 			System.out.println(message);
 			

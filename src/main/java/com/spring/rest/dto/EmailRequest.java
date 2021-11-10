@@ -6,25 +6,21 @@ public class EmailRequest {
 	public String Password;
 	public String To;
 	public String Subject;
-
-	public String getFrom() {
-		return this.From;
-	}
-
-	public void setFrom(String From) {
-		this.From = From;
-	}
-
-	public String getPassword() {
-		return this.Password;
-	}
-
-	public void setPassword(String Password) {
-		this.Password = Password;
-	}
-	public String Message;
+	public String cc;
+	public String bcc;
 	
-
+	public String getFrom() {
+		return From;
+	}
+	public void setFrom(String from) {
+		From = from;
+	}
+	public String getPassword() {
+		return Password;
+	}
+	public void setPassword(String password) {
+		Password = password;
+	}
 	public String getTo() {
 		return To;
 	}
@@ -37,22 +33,22 @@ public class EmailRequest {
 	public void setSubject(String subject) {
 		Subject = subject;
 	}
-	public String getMessage() {
-		return Message;
+	public String getCc() {
+		return cc;
 	}
-	public void setMessage(String message) {
-		Message = message;
+	public void setCc(String cc) {
+		this.cc = cc;
+	}
+	public String getBcc() {
+		return bcc;
+	}
+	public void setBcc(String bcc) {
+		this.bcc = bcc;
 	}
 	
 	@Override
 	public String toString() {
-		return "{" +
-			" From='" + getFrom() + "'" +
-			", Password='" + getPassword() + "'" +
-			", To='" + getTo() + "'" +
-			", Subject='" + getSubject() + "'" +
-			", Message='" + getMessage() + "'" +
-			"}";
-	}
-		
+		return "EmailRequest [From=" + From + ", Password=" + Password + ", Subject=" + Subject + ", To=" + To
+				+ ", bcc=" + bcc + ", cc=" + cc + "]";
+	}	
 }
