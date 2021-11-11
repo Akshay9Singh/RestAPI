@@ -65,9 +65,4 @@ public class GenericController {
 		return new ResponseEntity<String>("Mail Sent Successfully",HttpStatus.OK);
 	}
 
-	@GetMapping("/home/{name}")
-	public String greetHello(@PathVariable String name){
-		System.out.println("Hello " + name +" , Welcome.");
-		return "Hello, Welcome "+name+". Nice to have you here.";
-	}
 }
